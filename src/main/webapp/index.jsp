@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ page import="java.util.ArrayList" %>
+   <%@ page import="modelo.Libro" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,25 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+<table>
+	<tr>
+		<th><b>ISBN</b></th>
+		<th><b>Titulo</b></th>
+		<th><b>Autor</b></th>
+	</tr>
+	
+	<% ArrayList<Libro> libros = (ArrayList<Libro>)request.getAttribute("libros");
+		if(libros != null){
+			for(Libro l:libros){%>
+				<tr>
+					<td><%=l.getIsbn()%></td>
+					<td><%=l.getTitulo()%></td>
+					<td><%=l.getAutor()%></td>
+				</tr>
+		<%}
+		}%>
+</table>
 
 <div>
 	<form action="insertar" method="post">

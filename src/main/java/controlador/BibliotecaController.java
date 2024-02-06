@@ -10,6 +10,7 @@ import modelo.Libro;
 import modelo.LibroDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class BibliotecaController
@@ -33,7 +34,15 @@ public class BibliotecaController extends HttpServlet {
 		// TODO Auto-generated method stub
 		RequestDispatcher despachador = null;
 		if(request.getServletPath().equals("")) {
-			despachador = request.getServletContext().getRequestDispatcher("/index.jsp");
+			try {
+				LibroDAO libroDAO = new LibroDAO();
+				ArrayList<Libro> libros;
+				libros = libroDAO.getLibros();
+				request.setAttribute("libros", libros);
+			}catch(RuntimeException e) {
+				request.setAttribute("error", e.getMessage());
+				
+			}
 		}else if(request.getServletPath().equals("/insertar")) {
 			try {
 				LibroDAO libroDAO = new LibroDAO();
