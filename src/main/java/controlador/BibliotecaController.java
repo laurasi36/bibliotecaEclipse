@@ -49,6 +49,7 @@ public class BibliotecaController extends HttpServlet {
 				LibroDAO libroDAO = new LibroDAO();
 				Libro libro = new Libro(Integer.parseInt(request.getParameter("isbn")), request.getParameter("titulo"), request.getParameter("autor"));
 				libroDAO.insertar(libro);
+				request.setAttribute("info", "Libro " + libro + " añadido");
 				
 			}catch(NumberFormatException e) {
 				request.setAttribute("error", e.getMessage());

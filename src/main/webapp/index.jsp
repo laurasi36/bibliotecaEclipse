@@ -32,6 +32,11 @@
 			if(error!=null){%>
 				<p><%=error%></p>
 		<%} %>
+		
+		<% String info = (String)request.getAttribute("info");
+			if(info!=null){%>
+				<p><%=info%></p>
+		<%} %>
 </table>
 
 <div>
