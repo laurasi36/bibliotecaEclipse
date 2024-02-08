@@ -28,6 +28,10 @@
 				</tr>
 		<%}
 		}%>
+		<% String error = (String)request.getAttribute("error");
+			if(error!=null){%>
+				<p><%=error%></p>
+		<%} %>
 </table>
 
 <div>
