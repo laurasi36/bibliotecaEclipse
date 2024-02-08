@@ -43,6 +43,7 @@ public class BibliotecaController extends HttpServlet {
 				request.setAttribute("error", e.getMessage());
 				
 			}
+			despachador = request.getServletContext().getRequestDispatcher("/index.jsp");
 		}else if(request.getServletPath().equals("/insertar")) {
 			try {
 				LibroDAO libroDAO = new LibroDAO();
