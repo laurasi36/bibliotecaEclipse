@@ -1,6 +1,18 @@
 package modelo;
 
-public class Libro {
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="libros")
+public class Libro implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
 	private int isbn;
 	private String titulo;
 	private String autor;

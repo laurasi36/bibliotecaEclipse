@@ -36,8 +36,7 @@ public class BibliotecaController extends HttpServlet {
 		if(request.getServletPath().equals("")) {
 			try {
 				LibroDAO libroDAO = new LibroDAO();
-				ArrayList<Libro> libros;
-				libros = libroDAO.getLibros();
+				ArrayList<Libro> libros = new ArrayList<Libro>(libroDAO.getLibros());
 				request.setAttribute("libros", libros);
 			}catch(RuntimeException e) {
 				request.setAttribute("error", e.getMessage());
